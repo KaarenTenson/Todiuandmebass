@@ -1,10 +1,10 @@
 {
 	"folders": {},
 	"connections": {
-		"postgres-jdbc-18ee2c66027-7fc163ba28a3b716": {
+		"postgres-jdbc-18ee274328a-3b3313a8c1bc2aa5": {
 			"provider": "postgresql",
 			"driver": "postgres-jdbc",
-			"name": "postgres 2",
+			"name": "postgres",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
