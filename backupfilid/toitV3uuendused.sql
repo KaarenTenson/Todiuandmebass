@@ -5,7 +5,7 @@
 -- Dumped from database version 16.2
 -- Dumped by pg_dump version 16.2
 
--- Started on 2024-05-05 13:14:22
+-- Started on 2024-05-05 13:35:10
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -36,7 +36,7 @@ COMMENT ON SCHEMA public IS 'standard public schema';
 
 
 --
--- TOC entry 230 (class 1255 OID 41674)
+-- TOC entry 234 (class 1255 OID 41674)
 -- Name: f_hinna_vordlus(character varying, timestamp without time zone); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -44,12 +44,12 @@ CREATE FUNCTION public.f_hinna_vordlus(tootenimi character varying, aeg1 timesta
     LANGUAGE sql
     AS $$ select p.nimi,avg(hind) from poed_toodevahetabel pt 
 right join poed p on pt.pood=p.id where pt.toode=(select id from toode where tootenimi=toode.nimi) and 
-pt.aeg<=aeg1 group by p.nimi;
+pt.aeg>=aeg1 group by p.nimi;
 $$;
 
 
 --
--- TOC entry 231 (class 1255 OID 41681)
+-- TOC entry 230 (class 1255 OID 41681)
 -- Name: f_min_hind(character varying); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -62,7 +62,7 @@ $$;
 
 
 --
--- TOC entry 232 (class 1255 OID 41686)
+-- TOC entry 231 (class 1255 OID 41686)
 -- Name: f_sisestatihind(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -79,7 +79,7 @@ $$;
 
 
 --
--- TOC entry 233 (class 1255 OID 41696)
+-- TOC entry 232 (class 1255 OID 41696)
 -- Name: f_sisestatikogus(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -96,7 +96,7 @@ $$;
 
 
 --
--- TOC entry 234 (class 1255 OID 41698)
+-- TOC entry 233 (class 1255 OID 41698)
 -- Name: f_sisestatitoode(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -878,7 +878,7 @@ ALTER TABLE ONLY public.tootja_ja_riik
     ADD CONSTRAINT tootja_ja_riik_fk2 FOREIGN KEY (tootja) REFERENCES public.tootjad(id);
 
 
--- Completed on 2024-05-05 13:14:22
+-- Completed on 2024-05-05 13:35:10
 
 --
 -- PostgreSQL database dump complete
